@@ -33,7 +33,7 @@ function generateList(tasksArray){
 		ul.appendChild(li);
 	}
 
-	setDeleteEvent();
+	//setDeleteEvent();
 }
 
 function addList(list){
@@ -48,6 +48,17 @@ function setDeleteEvent(){
 		})
 	}
 }
+
+ul.addEventListener('click', function(e){
+	if(e.target.classList.contains('delete-item')){
+		//Delete list item
+		let parent = e.target.closest('li');
+		let text = parent.textContent;
+		let index = tasks.indexOf(text);
+		tasks.splice(index,1);
+		parent.remove();
+	}
+});
 
 generateList(tasks);
 
