@@ -41,22 +41,18 @@ function addList(list){
 	generateList(tasks);
 }
 
-function setDeleteEvent(){
-		for(let i=0; i<deleteBtns.length;i++){
-		deleteBtns[i].addEventListener('click', function(){
-			console.log('click');
-		})
-	}
+function deleteListItem(target){
+	let parent = target.closest('li');
+		let text = parent.textContent;
+		let index = tasks.indexOf(text);
+		tasks.splice(index,1);
+		parent.remove();
 }
 
 ul.addEventListener('click', function(e){
 	if(e.target.classList.contains('delete-item')){
 		//Delete list item
-		let parent = e.target.closest('li');
-		let text = parent.textContent;
-		let index = tasks.indexOf(text);
-		tasks.splice(index,1);
-		parent.remove();
+		deleteListItem(e.target);
 	}
 });
 
