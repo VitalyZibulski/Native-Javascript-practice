@@ -7,10 +7,16 @@ let tasks = [
 let ul = document.querySelector('.list-group');
 
 function listTemplate(task){
+	//Create list item
 	let li = document.createElement('li');
 	li.textContent = task;
-	li.className = 'list-group-item';
-
+	li.className = 'list-group-item d-flex align-items-center';
+	//Create tag i fa-trash-alt
+	let iDelete = document.createElement('i');
+	iDelete.className = 'fas fa-trash-alt delete-item ml-auto'
+	//Append delete icon to li
+	li.appendChild(iDelete);
+	
 	return li;
 }
 
@@ -35,16 +41,3 @@ function addList(list){
 generateList(tasks);
 
 let btn = document.querySelector('.clear-btn');
-
-function onLick(e){
-	console.log('click 1', e);
-}
-
-function onLick2(e){
-	console.log('click 2', e);
-}
-
-btn.addEventListener("click", onClick);
-btn.addEventListener("click", onClick2);
-
-btn.removeEventListener("click",onClick2);
