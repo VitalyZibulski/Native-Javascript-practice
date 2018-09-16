@@ -5,6 +5,7 @@ let tasks = [
 ];
 
 let ul = document.querySelector('.list-group');
+let deleteBtns = document.getElementsByClassName('delete-item');
 
 function listTemplate(task){
 	//Create list item
@@ -31,6 +32,8 @@ function generateList(tasksArray){
 		let li = listTemplate(tasksArray[i]);
 		ul.appendChild(li);
 	}
+
+	setDeleteEvent();
 }
 
 function addList(list){
@@ -38,6 +41,13 @@ function addList(list){
 	generateList(tasks);
 }
 
+function setDeleteEvent(){
+		for(let i=0; i<deleteBtns.length;i++){
+		deleteBtns[i].addEventListener('click', function(){
+			console.log('click');
+		})
+	}
+}
+
 generateList(tasks);
 
-let btn = document.querySelector('.clear-btn');
