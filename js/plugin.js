@@ -39,7 +39,8 @@ function generateList(tasksArray){
 
 function addList(list){
 	tasks.unshift(list);
-	generateList(tasks);
+	//generateList(tasks);
+	ul.insertAdjacentElement('afterbegin', listTemplate(inputText.value));
 }
 
 function deleteListItem(target){
@@ -63,6 +64,6 @@ form.addEventListener('submit', function(e){
 	e.preventDefault();
 	//console.log(inputText.value);
 	//addList(inputText.value);
-	ul.insertAdjacentElement('afterbegin', listTemplate(inputText.value));
+	addList(inputText.value);
 })
 
