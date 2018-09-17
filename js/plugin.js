@@ -5,7 +5,8 @@ let tasks = [
 ];
 
 let ul = document.querySelector('.list-group');
-let deleteBtns = document.getElementsByClassName('delete-item');
+let form = document.forms['addTodoItem'];
+let inputText = form.elements['todoText'];
 
 function listTemplate(task){
 	//Create list item
@@ -57,4 +58,11 @@ ul.addEventListener('click', function(e){
 });
 
 generateList(tasks);
+
+form.addEventListener('submit', function(e){
+	e.preventDefault();
+	//console.log(inputText.value);
+	//addList(inputText.value);
+	ul.insertAdjacentElement('afterbegin', listTemplate(inputText.value));
+})
 
