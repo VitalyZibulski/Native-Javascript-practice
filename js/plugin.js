@@ -64,6 +64,11 @@ form.addEventListener('submit', function(e){
 	e.preventDefault();
 	//console.log(inputText.value);
 	//addList(inputText.value);
-	addList(inputText.value);
+	if(!inputText.value){
+		//show error
+		inputText.classList.add('is-invalid');
+	} else {
+		addList(inputText.value);
+	}
 })
 
