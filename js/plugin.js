@@ -68,7 +68,9 @@ form.addEventListener('submit', function(e){
 		//show error
 		inputText.classList.add('is-invalid');
 	} else {
+		inputText.classList.remove('is-invalid');
 		addList(inputText.value);
+		form.reset();
 	}
 })
 
