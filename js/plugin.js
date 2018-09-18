@@ -3,6 +3,7 @@ let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 let ul = document.querySelector('.list-group');
 let form = document.forms['addTodoItem'];
 let inputText = form.elements['todoText'];
+let notificationAlert = document.querySelector('.notification-alert');
 
 function generateId(){
 	let id ='';
@@ -85,6 +86,22 @@ function editListItem(id, newValue){
 
 	//Update to localStorage
 	localStorage.setItem('tasks', JSON.stringify(tasks));
+
+	message({
+		text: 'Task updated success',
+		cssClass:'alert-success',
+		timeout:4000
+	});
+}
+
+function message(settings){
+	notificationAlert.classList.add(settings.cssClass);
+	notificationAlert.textContent = settings.text;
+	notificationAlert.classList.add('show');
+
+	setTimeout(function(){
+		notificationAlert.classList.remove('show');
+	}, settings.timeout);
 }
 
 ul.addEventListener('click', function(e){
