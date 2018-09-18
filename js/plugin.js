@@ -7,14 +7,16 @@ let inputText = form.elements['todoText'];
 function listTemplate(task){
 	//Create list item
 	let li = document.createElement('li');
-	li.textContent = task;
 	li.className = 'list-group-item d-flex align-items-center';
+	let span = document.createElement('span');
+	span.textContent = task;
 	//Create tag i fa-trash-alt
 	let iDelete = document.createElement('i');
 	iDelete.className = 'fas fa-trash-alt delete-item ml-4'
 	let iEdit = document.createElement('i');
 	iEdit.className = 'fas fa-edit edit-item ml-auto'
 	//Append delete icon to li
+	li.appendChild(span);
 	li.appendChild(iEdit);
 	li.appendChild(iDelete);
 	
@@ -58,6 +60,10 @@ ul.addEventListener('click', function(e){
 	if(e.target.classList.contains('delete-item')){
 		//Delete list item
 		deleteListItem(e.target);
+	} else if (e.target.classList.contains('edit-item')){
+		let span = e.target.closest('li').querySelector('span');
+		span.setAttribute('contenteditable', true);
+		span.focus();
 	}
 });
 
