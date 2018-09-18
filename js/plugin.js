@@ -1,10 +1,4 @@
-//let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-let tasks = [
-	{
-		id: 'XSzEzZNKRo1XmFp',
-		text:'One task'
-	}
-];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 let ul = document.querySelector('.list-group');
 let form = document.forms['addTodoItem'];
@@ -70,9 +64,8 @@ function addList(list){
 }
 
 function deleteListItem(id){
-
-	for (let i = 0; i<task.length; i++) {
-		if(task[i].id === id){
+	for (let i = 0; i<tasks.length; i++) {
+		if(tasks[i].id === id){
 			tasks.splice(i,1);
 			break;
 		}
@@ -91,6 +84,8 @@ ul.addEventListener('click', function(e){
 		deleteListItem(id);
 		parent.remove();
 	} else if (e.target.classList.contains('edit-item')){
+		e.target.classList.toggle('fa-save');
+		let id = e.target.closest('li').dataset.id;
 		let span = e.target.closest('li').querySelector('span');
 		span.setAttribute('contenteditable', true);
 		span.focus();
