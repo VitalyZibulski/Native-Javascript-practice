@@ -1,8 +1,4 @@
-let tasks = [
-	"Learn JS",
-	"Learn Angular",
-	"Learn PHP"
-];
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 let ul = document.querySelector('.list-group');
 let form = document.forms['addTodoItem'];
@@ -15,8 +11,11 @@ function listTemplate(task){
 	li.className = 'list-group-item d-flex align-items-center';
 	//Create tag i fa-trash-alt
 	let iDelete = document.createElement('i');
-	iDelete.className = 'fas fa-trash-alt delete-item ml-auto'
+	iDelete.className = 'fas fa-trash-alt delete-item ml-4'
+	let iEdit = document.createElement('i');
+	iEdit.className = 'fas fa-edit edit-item ml-auto'
 	//Append delete icon to li
+	li.appendChild(iEdit);
 	li.appendChild(iDelete);
 	
 	return li;
@@ -41,6 +40,8 @@ function addList(list){
 	tasks.unshift(list);
 	//generateList(tasks);
 	ul.insertAdjacentElement('afterbegin', listTemplate(inputText.value));
+	//Add to localStorage
+	localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function deleteListItem(target){
@@ -49,6 +50,8 @@ function deleteListItem(target){
 		let index = tasks.indexOf(text);
 		tasks.splice(index,1);
 		parent.remove();
+		//Update to localStorage
+		localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 ul.addEventListener('click', function(e){
