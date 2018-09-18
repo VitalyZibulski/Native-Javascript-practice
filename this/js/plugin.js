@@ -16,7 +16,14 @@ let amd = {
 	price:100,
 	discount:10,
 	count:50,
-	getPrice: getPrice
+	getPrice: getPrice,
+	calcTotalPrice: function (){
+		this.totalPrice = this.count * this.price;
+		return this;
+	},
+	getTotalPrice: function (){
+		return this.totalPrice;
+	}
 };
 
 intel.getPrice();
