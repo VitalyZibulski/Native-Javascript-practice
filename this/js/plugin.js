@@ -4,6 +4,7 @@ let intel = {
 	discount:10,
 	count:50,
 	getPrice: function(){
+		console.log(this);
 		return `this product cost ${intel.price}`;
 	}
 };
