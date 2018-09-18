@@ -1,6 +1,6 @@
-function getPrice(currency){
+function getPrice(currency,price){
 	console.log(this);
-	return `this product cost ${currency}${this.price}`;
+	return `this product ${price} ${currency}${this.price}`;
 }
 
 let intel = {
@@ -17,7 +17,8 @@ let amd = {
 	discount:10,
 	count:50,
 };
-getPrice.call(amd, '$');
+// getPrice.call(amd, '$');
+getPrice.call(amd, ['$','price']);
 
 // intel.getPrice();
 // amd.getPrice();
