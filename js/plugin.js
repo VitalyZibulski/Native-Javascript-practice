@@ -74,3 +74,10 @@ form.addEventListener('submit', function(e){
 	}
 })
 
+inputText.addEventListener('keyup', function(e){
+	//console.log(this.value, e);
+	if(inputText.value){
+		inputText.classList.remove('is-invalid');
+	}
+})
+
