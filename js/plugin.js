@@ -1,15 +1,34 @@
-let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+//let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+let tasks = [
+	{
+		id: 'XSzEzZNKRo1XmFp',
+		text:'One task'
+	}
+];
 
 let ul = document.querySelector('.list-group');
 let form = document.forms['addTodoItem'];
 let inputText = form.elements['todoText'];
 
+function generateId(){
+	let id ='';
+	let words = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM';
+
+	for (let i=0; i<15;i++){
+		let position = Math.floor(Math.random() * words.length);
+		id += words [position];
+	}
+
+	return id;
+}
+
 function listTemplate(task){
 	//Create list item
 	let li = document.createElement('li');
 	li.className = 'list-group-item d-flex align-items-center';
+	li.setAttribute('data-id', task.id);
 	let span = document.createElement('span');
-	span.textContent = task;
+	span.textContent = task.text;
 	//Create tag i fa-trash-alt
 	let iDelete = document.createElement('i');
 	iDelete.className = 'fas fa-trash-alt delete-item ml-4'
@@ -46,20 +65,27 @@ function addList(list){
 	localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-function deleteListItem(target){
-	let parent = target.closest('li');
-		let text = parent.textContent;
-		let index = tasks.indexOf(text);
-		tasks.splice(index,1);
-		parent.remove();
-		//Update to localStorage
-		localStorage.setItem('tasks', JSON.stringify(tasks));
+function deleteListItem(id){
+
+	for (let i = 0; i<task.length; i++) {
+		if(task[i].id === id){
+			tasks.splice(i,1);
+			break;
+		}
+	}
+	
+	
+	//Update to localStorage
+	localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 ul.addEventListener('click', function(e){
 	if(e.target.classList.contains('delete-item')){
 		//Delete list item
-		deleteListItem(e.target);
+		let parent = e.target.closest('li');
+		let id = parent.dataset.id; // dataset have any object
+		deleteListItem(id);
+		parent.remove();
 	} else if (e.target.classList.contains('edit-item')){
 		let span = e.target.closest('li').querySelector('span');
 		span.setAttribute('contenteditable', true);
