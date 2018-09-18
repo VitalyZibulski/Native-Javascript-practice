@@ -17,8 +17,12 @@ let amd = {
 	discount:10,
 	count:50,
 };
+
+intel.getPrice = getPrice.bind(intel);
+
+setTimeout(intel.getPrice, 1000);
 // getPrice.call(amd, '$');
-getPrice.call(amd, ['$','price']);
+//getPrice.call(amd, ['$','price']);
 
 // intel.getPrice();
 // amd.getPrice();
