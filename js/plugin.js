@@ -58,9 +58,13 @@ function generateList(tasksArray){
 }
 
 function addList(list){
-	tasks.unshift(list);
+	let newTask = {
+		id:generateId(),
+		text:list
+	}
+	tasks.unshift(newTask);
 	//generateList(tasks);
-	ul.insertAdjacentElement('afterbegin', listTemplate(inputText.value));
+	ul.insertAdjacentElement('afterbegin', listTemplate(newTask));
 	//Add to localStorage
 	localStorage.setItem('tasks', JSON.stringify(tasks));
 }
