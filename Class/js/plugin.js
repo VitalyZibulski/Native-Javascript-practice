@@ -36,6 +36,15 @@ class Persone{
 	}
 }
 
+class Customer extends Person{
+	constructor(firstName,lastName, phone, membership){
+		super(firstName,lastName); //similiar call
+		this.phone = phone;
+		this.membership = membership;
+	}
+}
+
 const user = new Person ('user', 'user1');
+const customer1 = new Customer('user2','customer','1111', 'Standart');
 
 Persone.sumNumbers(1,2);
