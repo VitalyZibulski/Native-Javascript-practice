@@ -12,5 +12,7 @@ function Customer(firstname,lastname,phone,membership){
 	this.membership = membership;
 }
 
+Customer.prototype = Object.create(Persone.prototype);
+
 let customer1 = new Customer('user2','customer','1111', 'Standart');
 console.log(customer1);
