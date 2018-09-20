@@ -20,11 +20,23 @@ const timer = (function(){
 		if(!timerDisplay || !endTime) return console.log('Please init module first');
 		if(!seconds || typeof seconds !== 'number') return console.log('Please provide seconds');
 
+		clearInterval(countDown);
+
 		const now = Date.now();
 		const then = now + seconds * 1000;
 
 		displayTimeLeft(seconds);
 		displayEndTime(then);
+
+		countDown = setInterval(()=>{
+			const secondsLeft = Math.round((then - Date.now())/1000);
+
+			if(secondsLeft <= 0) {
+				clearInterval(countDown);
+			}
+
+			displayTimeLeft(secondsLeft);
+		},1000);
 	}
 
 	function displayTimeLeft(seconds){
