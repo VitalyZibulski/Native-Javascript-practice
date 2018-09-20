@@ -23,11 +23,17 @@ const timer = (function(){
 		const now = Date.now();
 		const then = now + seconds * 1000;
 
+		displayTimeLeft(seconds);
 		displayEndTime(then);
 	}
 
 	function displayTimeLeft(seconds){
+		const minutes = Math.floor(seconds/60);
+		const reminderSeconds = seconds % 60;
 
+		const display = `${minutes}:${reminderSeconds < 10 ? '0' : ''}${reminderSeconds}`;
+		document.title = display;
+		timerDisplay.textContent = display;
 	}
 
 	function displayEndTime(timestamp){
