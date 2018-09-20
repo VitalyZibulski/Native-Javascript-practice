@@ -48,10 +48,10 @@ let module = (function() {
 	}
 
 	return {
-		setCounter: setCounter,
-		getCounter: getCounter,
-		plusCounter: plusCounter,
-		reset: reset
+		setCounter,
+		getCounter,
+		plusCounter,
+		reset
 	}
 
 }());
