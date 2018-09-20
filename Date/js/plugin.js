@@ -1,11 +1,3 @@
-// let date = new Date();
-
-// let methods;
-
-// 	methods = date.getSeconds();
-
-// console.log(methods);
-
 let date = new Date();
 
 let methods;
@@ -18,4 +10,6 @@ date = date.toLocaleString('ru-Ru',{
 	weekday:'long'
 });
 
-console.log(date);
+setInterval(()=>{
+	console.log(Date.now());
+},500);
