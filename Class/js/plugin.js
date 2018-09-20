@@ -1,7 +1,11 @@
 function Persone(firstname, lastname, age){
 	this.firstname = firstname;
 	this.lastname = lastname;
-	this.age = age;
+	let userAge = age;
+
+	this.getUserAge = function() {
+		return userAge;
+	}
 
 	Persone.prototype.getFullName = function(){
 		return `${this.firstname} ${this.lastname}`
