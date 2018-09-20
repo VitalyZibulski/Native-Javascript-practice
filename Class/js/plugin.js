@@ -45,6 +45,10 @@ class Customer extends Person{
 
 	greeting(){
 		console.log(super.greeting()); //call parent method
+
+		const parentGreeting = super.greeting();
+
+		return	`${parentGreeting}`;
 	}
 }
 
