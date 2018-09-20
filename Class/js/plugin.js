@@ -27,8 +27,15 @@ class Persone{
 	}
 
 	greeting(){
+		console.log(Persone.sumNumbers(1,2));
 		return `${firstname}${lastname}`;
+	}
+
+	static sumNumbers(x,y){
+		return x + y;
 	}
 }
 
 const user = new Person ('user', 'user1');
+
+Persone.sumNumbers(1,2);
