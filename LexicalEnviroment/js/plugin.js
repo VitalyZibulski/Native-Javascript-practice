@@ -25,18 +25,26 @@ let module = (function() {
 
 	function setCounter(value){
 		counter = value;
+
+		return this;
 	}
 
 	function plusCounter(){
 		counter++;
+
+		return this;
 	}
 
 	function getCounter(){
 		return counter;
+
+		return this;
 	}
 
 	function reset(){
 		counter = 0;
+
+		return this;
 	}
 
 	return {
@@ -51,3 +59,5 @@ let module = (function() {
 console.log(module);
 
 //module.setCounter(); for example
+
+//module.setCounter().plusCounter();
