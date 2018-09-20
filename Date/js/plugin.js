@@ -21,6 +21,8 @@ const timer = (function(){
 		if(!seconds || typeof seconds !== 'number') return console.log('Please provide seconds');
 
 		clearInterval(countDown);
+		alarmSound.pause();
+		alarmSound.currentTime = 0;
 
 		const now = Date.now();
 		const then = now + seconds * 1000;
@@ -31,8 +33,10 @@ const timer = (function(){
 		countDown = setInterval(()=>{
 			const secondsLeft = Math.round((then - Date.now())/1000);
 
-			if(secondsLeft <= 0) {
+			if(secondsLeft < 0) {
 				clearInterval(countDown);
+				playSound();
+				return;
 			}
 
 			displayTimeLeft(secondsLeft);
@@ -61,7 +65,7 @@ const timer = (function(){
 	}
 
 	function playSound(){
-
+		alarmSound.play();
 	}
 
 	return {
