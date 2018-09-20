@@ -1,17 +1,45 @@
-let date = new Date();
+const buttons = document.querySelectorAll('[data-time]');
 
-let methods;
+const timer = (function(){
+	let countDown,
+		timerDisplay,
+		endTime
 
-date.setMinutes(date.getMinutes() + 10);
+	function init(settings){
 
-date = date.toLocaleString('ru-Ru',{
-	year:'2-digit',
-	month:'short',
-	weekday:'long'
-});
+	}
 
-// let timer = setInterval(()=>{
-// 	console.log(Date.now());
-// },500);
+	function start(seconds){
 
-// clearInterval(timer);
+	}
+
+	function displayTimeLeft(seconds){
+
+	}
+
+	function displayEndTime(timestamp){
+
+	}
+
+	function stop(){
+
+	}
+
+	function playSound(){
+
+	}
+
+	return {
+		init,
+		start,
+		stop
+	}
+
+})();
+
+// Init timer
+timer.init({
+	timeLeftSelector:'.display__time-left',
+	timeEndSelector:'.display__end-time',
+	alarmSound:'audio/bell.mp3'
+})
