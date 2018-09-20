@@ -10,8 +10,8 @@ date = date.toLocaleString('ru-Ru',{
 	weekday:'long'
 });
 
-let timer = setInterval(()=>{
-	console.log(Date.now());
-},500);
+// let timer = setInterval(()=>{
+// 	console.log(Date.now());
+// },500);
 
-clearInterval(timer);
+// clearInterval(timer);

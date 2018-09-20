@@ -4,50 +4,24 @@
 	<meta charset="UTF-8">
 	<title>	</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<style>
-		.notification-alert{
-			display: none;
-		}
-
-		.notification-alert.show{
-			display: block;
-		}
-	</style>
 </head>
 <body>
-	<section class="tasks-wrap mt-5">
-		<div class="container">
-			<div class="alert notification-alert"></div>
-			<div class="card mb-3">
-				<div class="card-header">
-					Add to do
-				</div>
-				<div class="card-body">
-					<form name="addTodoItem">
-						<div class="form-group">
-							<label for="todoText">Text</label>
-							<input type="text" class="form-control" id="todoText">
-							<div class="invalid-feedback">
-								Please enter some text
-							</div>
-						</div>
-						<button type="submit" class="btn btn-primary">Add</button>
-					</form>
-				</div>
-			</div>
-			<div class="card mb-3">
-				<div class="card-header">
-					Task list
-				</div>
-				<div class="card-body">
-					<ul class="list-group">
-					</ul>
-				</div>
-			</div>
-			<button class="btn btn-primary clear-btn">Clear list</button>
+	<div class="timer">
+		<div class="timer__controls">
+			<button data-time="20" class="timer__button">20secs</button>
+			<button data-time="300" class="timer__button">Work 5</button>
+			<button data-time="900" class="timer__button">Quick 15</button>
+			<button data-time="1200" class="timer__button">Snack 20</button>
+			<button data-time="3600" class="timer__button">Lunch Break</button>
+			<form name="customForm" id="custom">
+				<input type="text" name="minutes" placeholder="Enter Minutes">
+			</form>
 		</div>
-	</section>
+		<div class="display">
+			<h1 class="display__time-left"></h1>
+			<p class="display__end-time"></p>
+		</div>
+	</div>
 <script src="js/plugin.js"></script>					
 </body>
 </html>
