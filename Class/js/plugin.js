@@ -14,5 +14,7 @@ function Customer(firstname,lastname,phone,membership){
 
 Customer.prototype = Object.create(Persone.prototype);
 
+Customer.prototype.constructor = Customer;
+
 let customer1 = new Customer('user2','customer','1111', 'Standart');
 console.log(customer1);
