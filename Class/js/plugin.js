@@ -42,6 +42,10 @@ class Customer extends Person{
 		this.phone = phone;
 		this.membership = membership;
 	}
+
+	greeting(){
+		console.log(super.greeting()); //call parent method
+	}
 }
 
 const user = new Person ('user', 'user1');
