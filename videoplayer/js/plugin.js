@@ -10,21 +10,32 @@ class VideoPlayer{
 	}
 
 	init(){
+		//const self = this;
 		//Start plugin
 		this.events();
 	}
 
-	events(){
+	events(){ //self in function
 		//All events
 		//this.video.addEventListener('click',this.togglePlay.bind(this));
-		this.video.addEventListener('click',(e) => {
-			console.log(this);
-		});
+		// this.video.addEventListener('click',(e) => {
+		// 	this.togglePlay(); });
+		this.video.addEventListener('click', e => this.togglePlay());
+		this.toggle.addEventListener('click', e => this.togglePlay());
+		
 	}
 
 	togglePlay(){
 		//Play/pause video
-		//console.log(this);
+		console.log(this);
+		const method = this.video.paused ? 'play' : 'pause';
+		const icon = this.video.paused ? '>' : '||';
+		this.toggle.textContent = icon;
+		this.video[method]();
+		// similiar
+		// this.video.play();
+		// this.video.pause();
+
 	}
 
 	skip(){
