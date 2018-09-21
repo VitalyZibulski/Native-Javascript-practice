@@ -1,5 +1,5 @@
 class VideoPlayer{
-	constructor(){
+	constructor() {
 		this.player = document.querySelector('.player');
 		this.video = this.player.querySelector('.viewer');
 		this.progress = document.querySelector('.progress');
@@ -9,13 +9,13 @@ class VideoPlayer{
 		this.ranges = this.player.querySelectorAll('.player__slider');
 	}
 
-	init(){
+	init() {
 		//const self = this;
 		//Start plugin
 		this.events();
 	}
 
-	events(){ //self in function
+	events() { //self in function
 		//All events
 		//this.video.addEventListener('click',this.togglePlay.bind(this));
 		// this.video.addEventListener('click',(e) => {
@@ -25,7 +25,7 @@ class VideoPlayer{
 		
 	}
 
-	togglePlay(){
+	togglePlay() {
 		//Play/pause video
 		console.log(this);
 		const method = this.video.paused ? 'play' : 'pause';
@@ -35,15 +35,13 @@ class VideoPlayer{
 		// similiar
 		// this.video.play();
 		// this.video.pause();
-
 	}
 
-	skip(){
+	skip() {
 		//Time skip
 	}
 }
 
 const video = new VideoPlayer();
 video.init();
-
 console.log(video);
