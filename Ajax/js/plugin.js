@@ -9,6 +9,8 @@ const xhr = new XMLHttpRequest();
 
 xhr.addEventListener('load', function (e){
 	console.log(xhr.responseText);
+	//xhr.status
+	//xhr.statusText
 });
 
 xhr.addEventListener('error', function(e){
