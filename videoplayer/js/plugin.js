@@ -21,6 +21,7 @@ class VideoPlayer{
 		// this.video.addEventListener('click',(e) => {
 		// 	this.togglePlay(); });
 		this.video.addEventListener('click', e => this.togglePlay());
+		this.video.addEventListener('timeupdate', e => this.handleProgress(e));
 		this.toggle.addEventListener('click', e => this.togglePlay());
 		this.ranges.forEach(range => range.addEventListener('change', e => this.handleRangeUpdate(e)));
 		this.ranges.forEach(range => range.addEventListener('mousemove', e => this.handleRangeUpdate(e)));
@@ -49,6 +50,12 @@ class VideoPlayer{
 	skip(e) {
 		//Time skip
 		this.video.currentTime += parseFloat(e.target.dataset.skip);
+	}
+
+	handleProgress(){
+		console.log(this.video.currentTime);
+		const percent = (this.video.currentTime/this.video.duration) * 100;
+		this.progressBar.style.flexBasis = `${percent}%`;
 	}
 }
 
