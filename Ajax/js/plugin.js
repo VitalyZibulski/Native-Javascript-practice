@@ -23,5 +23,10 @@ xhr.open('GET','https://jsonplaceholder.typicode.com/posts');
 
 xhr.timeout = 3000;
 
+xhr.setRequestHeader('Content-type', 'application/json');
+
+//xhr.getResponseHeader('Content-type');
+//xhr.getAllResponseHeaders();
+
 xhr.send();
 
