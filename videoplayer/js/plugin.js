@@ -22,14 +22,23 @@ class VideoPlayer{
 		// 	this.togglePlay(); });
 		this.video.addEventListener('click', e => this.togglePlay());
 		this.toggle.addEventListener('click', e => this.togglePlay());
+		this.ranges.forEach(range => range.addEventListener('change', e => this.handleRangeUpdate(e)));
+		this.ranges.forEach(range => range.addEventListener('mousemove', e => this.handleRangeUpdate(e)));
 		
+	}
+
+	handleRangeUpdate(e){
+		//if volume, this.video['volume'] = e.target.value;
+		//if playBackRate, this.video['playBackRate'] = e.target.value;
+		console.log(e.target);
+		this.video[e.target.name] = e.target.value;
 	}
 
 	togglePlay() {
 		//Play/pause video
 		console.log(this);
 		const method = this.video.paused ? 'play' : 'pause';
-		const icon = this.video.paused ? '>' : '||';
+		const icon = this.video.paused ? '||' : '>';
 		this.toggle.textContent = icon;
 		this.video[method]();
 		// similiar
