@@ -11,6 +11,10 @@ xhr.addEventListener('load', function (e){
 	console.log(xhr.responseText);
 });
 
+xhr.addEventListener('error', function(e){
+	console.log(xhr.responseText);
+})
+
 xhr.open('GET','https://jsonplaceholder.typicode.com/posts');
 
 xhr.send();
