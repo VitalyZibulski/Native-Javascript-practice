@@ -15,7 +15,13 @@ xhr.addEventListener('error', function(e){
 	console.log(xhr.responseText);
 })
 
+xhr.addEventListener('timeout', function(e){
+	console.log('timeout');
+});
+
 xhr.open('GET','https://jsonplaceholder.typicode.com/posts');
+
+xhr.timeout = 3000;
 
 xhr.send();
 
