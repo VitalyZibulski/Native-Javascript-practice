@@ -4,17 +4,20 @@ let users = [
 	{
 		name:'user',
 		age: 26,
-		gender:'male'
+		gender:'male',
+		balance:100
 	},
 	{
 		name:'user1',
 		age: 28,
-		gender:'female'
+		gender:'female',
+		balance:400
 	},
 	{
 		name:'user2',
 		age: 29,
-		gender:'male'
+		gender:'male',
+		balance:450
 	}
 ]
 
@@ -43,4 +46,13 @@ let mapRes = users.map(user => {
 		return user;	
 })
 
-console.log(mapRes);
+// console.log(mapRes);
+
+//Reduce
+
+let total = users.reduce((sum,user) => {
+	console.log(sum, user.balance);
+	return sum += user.balance;
+},0);
+
+total = users.reduce((sum,user) => sum += user.balance, 0);
