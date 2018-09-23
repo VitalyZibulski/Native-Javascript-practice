@@ -52,6 +52,9 @@ ajax.send({
 		body:'bar',
 		userId: 1
 	}),
+	headers:{
+		"Content-type":"application/json; charset=UTF-8"
+	},
 	success: function(res){
 		let response = JSON.parse(res);
 		console.log(response);

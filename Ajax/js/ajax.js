@@ -30,6 +30,13 @@ const ajax = (function(){
 
 		xhr.timeout = settings.timeout || 3000;
 
+		if(settings.headers){
+			for (let headerName in settings.headers) {
+				console.log(headerName);
+				xhr.setRequestHeader(headerName, settings.headers[header])
+			}
+		}
+
 		xhr.send(settings.data);
 	}
 
