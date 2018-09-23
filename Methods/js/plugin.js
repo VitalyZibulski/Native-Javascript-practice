@@ -32,3 +32,15 @@ let res = numbers.filter((item, i, arr) => {
 res = users.filter(user => user.gender === 'male');
 
 // console.log(res);
+
+//Map
+
+let mapRes = users.map(user => {
+	return user.name;
+});
+	mapRes = users.map(user => {
+		user.age = user.age + ' years old';
+		return user;	
+})
+
+console.log(mapRes);
