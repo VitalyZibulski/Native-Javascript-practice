@@ -66,7 +66,8 @@ const promise = new Promise(function(resolve, reject) {
 promise
 	.then(data => {
 		console.log(data);
+		return 'some new info';
 	})
-	.then(() => {
-		console.log('Next step');
+	.then((data) => {
+		console.log(data);
 	})
