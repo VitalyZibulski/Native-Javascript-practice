@@ -59,6 +59,7 @@ total = users.reduce((sum,user) => sum += user.balance, 0);
 
 const promise = new Promise(function(resolve, reject) {
 	setTimeout(function(){
+		reject('Error');
 		resolve('some value');
 	}, 2000);
 });
@@ -71,3 +72,6 @@ promise
 	.then((data) => {
 		console.log(data);
 	})
+	.catch(err => {
+		console.log(err);
+	});
