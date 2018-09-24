@@ -84,7 +84,7 @@ function promise1(){
 	})
 }
 
-function promise2(){
+function promise2(data){ // data = resolve('First step')
 	return new Promise(function(resolve,reject){
 		setTimeout(function() {
 			console.log('Second step');
@@ -93,10 +93,10 @@ function promise2(){
 	})
 }
 
-function promise3(){
+function promise3(data){
 	return new Promise(function(resolve,reject){
 		setTimeout(function() {
-			console.log('Third step');
+			console.log(data,'Third step');
 			resolve('Third step');
 		},2000);
 	})
