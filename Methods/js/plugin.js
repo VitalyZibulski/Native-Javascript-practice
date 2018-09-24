@@ -88,7 +88,7 @@ function promise2(data){ // data = resolve('First step')
 	return new Promise(function(resolve,reject){
 		setTimeout(function() {
 			console.log('Second step');
-			resolve('Second step');
+			reject('Error on Second step');
 		},2000);
 	})
 }
