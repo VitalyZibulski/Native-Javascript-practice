@@ -143,6 +143,9 @@ function getCommentsById(id) {
 
 function generateTemplate(comments){
 	console.log(comments);
+	comments.forEach(comment => {
+
+	})
 }
 
 getPOstByID(1)
@@ -160,3 +163,22 @@ getPOstByID(1)
 	.catch(err =>{
 		console.log(err);
 	});
+
+//Fetch
+fetch(`https://jsonplaceholder.typicode.com/posts/1/comments`,{
+	method:'GET'
+})
+	.then(res => {
+		console.log(res.status);
+		console.log(res.headers.get('Content-type'));
+		return res.json();
+	})
+
+	.then(data => {
+		console.log(data);
+	})
+	.catch(err => {
+		console.log(err);
+	});
+
+
