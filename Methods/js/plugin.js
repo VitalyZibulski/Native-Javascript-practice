@@ -75,36 +75,72 @@ let total = users.reduce((sum,user) => {
 // 		console.log(err);
 // 	});
 
-function promise1(){
-	return new Promise(function(resolve,reject){
-		setTimeout(function() {
-			console.log('First step');
-			resolve('First step');
-		},2000);
+// function promise1(){
+// 	return new Promise(function(resolve,reject){
+// 		setTimeout(function() {
+// 			console.log('First step');
+// 			resolve('First step');
+// 		},2000);
+// 	})
+// }
+
+// function promise2(data){ // data = resolve('First step')
+// 	return new Promise(function(resolve,reject){
+// 		setTimeout(function() {
+// 			console.log('Second step');
+// 			reject('Error on Second step');
+// 		},2000);
+// 	})
+// }
+
+// function promise3(data){
+// 	return new Promise(function(resolve,reject){
+// 		setTimeout(function() {
+// 			console.log(data,'Third step');
+// 			resolve('Third step');
+// 		},2000);
+// 	})
+// }
+
+// promise1()
+// 	.then(promise2)
+// 	.then(promise3)
+// 	.catch(err => {
+// 		console.log(err);
+// 	});
+
+function getPOstByID(id){
+	return new Promise(function (resolve,reject){
+		ajax.send({
+			method:'GET',
+			url:`https://jsonplaceholder.typicode.com/posts/${id}`,
+			// success: function (res){
+			// 	resolve(res);
+			// }
+			success:resolve,
+			error: reject
+		})
 	})
 }
 
-function promise2(data){ // data = resolve('First step')
-	return new Promise(function(resolve,reject){
-		setTimeout(function() {
-			console.log('Second step');
-			reject('Error on Second step');
-		},2000);
+function getCommentsById(id) {
+	return new Promise(function (resolve,reject){
+		ajax.send({
+			method:'GET',
+			url:`https://jsonplaceholder.typicode.com/posts/${id}/comments`,
+			// success: function (res){
+			// 	resolve(res);
+			// }
+			success:resolve,
+			error: reject
+		})
 	})
 }
 
-function promise3(data){
-	return new Promise(function(resolve,reject){
-		setTimeout(function() {
-			console.log(data,'Third step');
-			resolve('Third step');
-		},2000);
+getPOstByID(1)
+	.then(res =>{
+		console.log(res);
 	})
-}
-
-promise1()
-	.then(promise2)
-	.then(promise3)
-	.catch(err => {
+	.catch(err =>{
 		console.log(err);
 	});
