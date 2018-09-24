@@ -63,6 +63,10 @@ const promise = new Promise(function(resolve, reject) {
 	}, 2000);
 });
 
-promise.then(data => {
-	console.log(data);
-});
+promise
+	.then(data => {
+		console.log(data);
+	})
+	.then(() => {
+		console.log('Next step');
+	})
