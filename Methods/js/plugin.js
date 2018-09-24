@@ -109,6 +109,10 @@ let total = users.reduce((sum,user) => {
 // 		console.log(err);
 // 	});
 
+let post;
+let comments;
+
+
 function getPOstByID(id){
 	return new Promise(function (resolve,reject){
 		ajax.send({
@@ -139,7 +143,14 @@ function getCommentsById(id) {
 
 getPOstByID(1)
 	.then(res =>{
-		console.log(res);
+		post = JSON.parse(res);
+		return post.id;
+
+	})
+	.then(getCommentsById)
+	.then(res => {
+		comments = JSON.parse(res);
+		console.log(comments);
 	})
 	.catch(err =>{
 		console.log(err);
