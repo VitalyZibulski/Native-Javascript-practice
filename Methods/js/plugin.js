@@ -55,23 +55,56 @@ let total = users.reduce((sum,user) => {
 	return sum += user.balance;
 },0);
 
-total = users.reduce((sum,user) => sum += user.balance, 0);
+// total = users.reduce((sum,user) => sum += user.balance, 0);
 
-const promise = new Promise(function(resolve, reject) {
-	setTimeout(function(){
-		reject('Error');
-		resolve('some value');
-	}, 2000);
-});
+// const promise1 = new Promise(function(resolve, reject) {
+// 	setTimeout(function(){
+// 		resolve('First step');
+// 	}, 2000);
+// });
 
-promise
-	.then(data => {
-		console.log(data);
-		return 'some new info';
+// promise1
+// 	.then(data => {
+// 		console.log(data);
+// 		return 'some new info';
+// 	})
+// 	.then((data) => {
+// 		console.log(data);
+// 	})
+// 	.catch(err => {
+// 		console.log(err);
+// 	});
+
+function promise1(){
+	return new Promise(function(resolve,reject){
+		setTimeout(function() {
+			console.log('First step');
+			resolve('First step');
+		},2000);
 	})
-	.then((data) => {
-		console.log(data);
+}
+
+function promise2(){
+	return new Promise(function(resolve,reject){
+		setTimeout(function() {
+			console.log('Second step');
+			resolve('Second step');
+		},2000);
 	})
+}
+
+function promise3(){
+	return new Promise(function(resolve,reject){
+		setTimeout(function() {
+			console.log('Third step');
+			resolve('Third step');
+		},2000);
+	})
+}
+
+promise1()
+	.then(promise2)
+	.then(promise3)
 	.catch(err => {
 		console.log(err);
 	});
