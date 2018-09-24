@@ -141,6 +141,10 @@ function getCommentsById(id) {
 	})
 }
 
+function generateTemplate(comments){
+	console.log(comments);
+}
+
 getPOstByID(1)
 	.then(res =>{
 		post = JSON.parse(res);
@@ -150,8 +154,9 @@ getPOstByID(1)
 	.then(getCommentsById)
 	.then(res => {
 		comments = JSON.parse(res);
-		console.log(comments);
+		return comments;
 	})
+	.then(generateTemplate)
 	.catch(err =>{
 		console.log(err);
 	});
