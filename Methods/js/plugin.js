@@ -51,8 +51,18 @@ let mapRes = users.map(user => {
 //Reduce
 
 let total = users.reduce((sum,user) => {
-	console.log(sum, user.balance);
+	// console.log(sum, user.balance);
 	return sum += user.balance;
 },0);
 
 total = users.reduce((sum,user) => sum += user.balance, 0);
+
+const promise = new Promise(function(resolve, reject) {
+	setTimeout(function(){
+		resolve('some value');
+	}, 2000);
+});
+
+promise.then(data => {
+	console.log(data);
+});
