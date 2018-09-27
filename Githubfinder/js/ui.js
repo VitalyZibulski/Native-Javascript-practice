@@ -5,8 +5,17 @@ class UI {
 	}
 
 	//Display profile
-	showProfile(){
-
+	showProfile(user){
+		this.profile.innerHTML = `
+			<div class="car card-body mb-3">
+				<div class="row">
+					<div class="col-md-3">
+						<img src="${user.avatar_url}" alt="" class="img-fluid mb-2">
+						<a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
+					</div>
+				<div>
+			<div>
+		`
 	}
 
 	//Display repos

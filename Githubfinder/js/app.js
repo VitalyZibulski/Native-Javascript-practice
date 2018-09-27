@@ -21,6 +21,7 @@ searchInput.addEventListener('keyup',(e) => {
 					ui.showAlert(`User: ${userText} not found`, `alert alert-danger`);
 				} else {
 					// Show Profile
+					ui.showProfile(user);
 				}
 			})
 			.catch(err => console.log(err));
