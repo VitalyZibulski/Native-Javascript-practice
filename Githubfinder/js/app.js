@@ -27,5 +27,6 @@ searchInput.addEventListener('keyup',(e) => {
 			.catch(err => console.log(err));
 	} else {
 		//Clear profile
+		ui.clearProfile();
 	}
 });
