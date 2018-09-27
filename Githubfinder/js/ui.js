@@ -21,8 +21,11 @@ class UI {
 
 		//Create template
 		const alert = `<div class="${className}">${message}</div>`;
-		
+
 		this.search_container.insertAdjacentHTML('afterbegin',alert);
+
+		//Hide alert after 2s
+		setTimeout(() => this.clearAlert(), 2000);
 	}
 
 	//clearAlert
