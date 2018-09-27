@@ -25,7 +25,13 @@ searchInput.addEventListener('keyup',(e) => {
 					// Show Profile
 					ui.showProfile(user);
 				}
+				return user
 			})
+			.then(github.getRepos.bind(github))
+			.then(repos => {
+				console.log(repos);
+			})
+
 			.catch(err => console.log(err));
 	} else {
 		//Clear profile
