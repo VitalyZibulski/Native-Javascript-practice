@@ -13,7 +13,11 @@ searchInput.addEventListener('keyup',(e) => {
 		//Make http request
 		github.getUser(userText)
 			.then(user => {
-				console.log(user);
+				if(user.message === 'Not Found'){
+					//Show alert
+				} else {
+					// Show Profile
+				}
 			})
 			.catch(err => console.log(err));
 	} else {
