@@ -13,6 +13,20 @@ class UI {
 						<img src="${user.avatar_url}" alt="" class="img-fluid mb-2">
 						<a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
 					</div>
+					<div class="col-md-9">
+						<div class="user-info-header mb-3">
+							<span class="badge badge-primary">Public Repos: ${user.public_repos}</span>
+							<span class="badge badge-secondary">Public Gists: ${user.public_gists}</span>
+							<span class="badge badge-success">Followers: ${user.followers}</span>
+							<span class="badge badge-info">Following: ${user.following}</span>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">Company: ${user.company ? user.company : 'N/A'}</li>
+							<li class="list-group-item">Website/Blog: ${user.blog ? user.blog : 'N/A'}</li>
+							<li class="list-group-item">Location: ${user.location ? user.location : 'N/A'}</li>
+							<li class="list-group-item">Member since: ${user.created_at}</li>
+						</ul>
+					</div>
 				<div>
 			<div>
 		`
