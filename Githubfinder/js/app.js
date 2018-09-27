@@ -6,5 +6,9 @@ searchInput.addEventListener('keyup',(e) => {
 	// Get input TEext
 	const userText = e.target.value;
 
-	console.log(userText);
+	if(userText !== ''){
+		//Make http request
+	} else {
+		//Clear profile
+	}
 });
