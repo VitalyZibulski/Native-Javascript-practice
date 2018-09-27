@@ -19,6 +19,8 @@ searchInput.addEventListener('keyup',(e) => {
 				if(user.message === 'Not Found'){
 					//Show alert
 					ui.showAlert(`User: ${userText} not found`, `alert alert-danger`);
+					//Clear profile
+					ui.clearProfile();
 				} else {
 					// Show Profile
 					ui.showProfile(user);
