@@ -29,7 +29,7 @@ searchInput.addEventListener('keyup',(e) => {
 			})
 			.then(github.getRepos.bind(github))
 			.then(repos => {
-				console.log(repos);
+				ui.showRepos(repos);
 			})
 
 			.catch(err => console.log(err));

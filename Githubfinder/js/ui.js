@@ -2,6 +2,7 @@ class UI {
 	constructor(){
 		this.profile = document.getElementById('profile');
 		this.search_container = document.querySelector('.searchContainer');
+		this.repos = document.getElementById('repos');
 	}
 
 	//Display profile
@@ -36,7 +37,21 @@ class UI {
 
 	//Display repos
 	showRepos (repos) {
+		let output = '';
 
+		repos.forEach(repo => {
+			output += `
+				<div class="card card-body mb-2">
+					<div class="row">
+						<div class="col-md-6">
+							<a href="${repo.html_url} target="_blank">${repo.name}</a>
+						</div>
+					</div>
+				</div>
+			`
+		});
+
+		document.getElementById('repos').innerHTML = output;
 	}
 
 	// Display alert message
