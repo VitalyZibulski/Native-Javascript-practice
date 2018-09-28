@@ -3,6 +3,7 @@ class UI {
 		this.profile = document.getElementById('profile');
 		this.search_container = document.querySelector('.searchContainer');
 		this.repos = document.getElementById('repos');
+		this.loader = document.querySelector('.loader');
 	}
 
 	//Display profile
@@ -81,7 +82,16 @@ class UI {
 			currentAlert.remove();
 		}
 	}
+
 	clearProfile(){
 		this.profile.innerHTML = '';
+	}
+
+	showLoader(){
+		this.loader.style.display = 'block';
+	}
+
+	hideLoader(){
+		setTimeout(() => this.loader.style.display = 'none', 300);
 	}
 }

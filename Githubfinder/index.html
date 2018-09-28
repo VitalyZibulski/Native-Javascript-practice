@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Github Finder</title>
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
-	
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-primary mb-3">
@@ -19,7 +19,13 @@
 			<input type="text" id="searchUser" class="form-control" placeholder="GitHub Username...">
 		</div>
 		<br>
-		<div id="profile"></div>
+		<div class="profile-wrapper">
+			<div id="profile">
+				<div class="loader">
+					<img src="img/preloader.gif" alt="">
+				</div>
+			</div>
+		</div>
 	</div>
 	<footer class="mt-5 p-3 text-center bg-light">
 		GitHub Finder

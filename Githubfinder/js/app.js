@@ -13,6 +13,7 @@ searchInput.addEventListener('keyup',(e) => {
 	const userText = e.target.value;
 
 	if(userText !== ''){
+		ui.showLoader();
 		//Make http request
 		github.getUser(userText)
 			.then(user => {
@@ -21,6 +22,7 @@ searchInput.addEventListener('keyup',(e) => {
 					ui.showAlert(`User: ${userText} not found`, `alert alert-danger`);
 					//Clear profile
 					ui.clearProfile();
+					ui.hideLoader();
 				} else {
 					// Show Profile
 					ui.showProfile(user);
@@ -29,7 +31,8 @@ searchInput.addEventListener('keyup',(e) => {
 			})
 			.then(github.getRepos.bind(github))
 			.then(repos => {
-				ui.showRepos(repos);
+				ui.showRepos(repos)
+			.then(() => ui.hideLoader);
 			})
 
 			.catch(err => console.log(err));
