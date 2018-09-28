@@ -46,6 +46,11 @@ class UI {
 						<div class="col-md-6">
 							<a href="${repo.html_url} target="_blank">${repo.name}</a>
 						</div>
+						<div class="col-md-6">
+							<div class="badge badge-primary">Stars:${repo.stargazers_count}</div>
+							<div class="badge badge-secondary">Watchers: ${repo.watchers_count}</div>
+							<div class="badge badge-success">Forks: ${repo.forms_count}</div>
+						</div>
 					</div>
 				</div>
 			`
