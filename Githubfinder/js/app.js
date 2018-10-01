@@ -74,6 +74,7 @@ function request2(){
 }
 
 async function makeRequest2(){
+	throw new Error('Error');
 	const data = await request1();
 
 	if(data.makeAnotherRequest){
@@ -85,4 +86,5 @@ async function makeRequest2(){
 }
 
 makeRequest2()
-	.then (result => console.log(result));
+	.then (result => console.log(result))
+	.catch (error => console.log(error));
