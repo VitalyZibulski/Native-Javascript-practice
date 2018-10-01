@@ -44,7 +44,10 @@ searchInput.addEventListener('keyup',(e) => {
 
 // async/await
 async function getName(){
-	return 'Hello';
+	// await
+	let user = await github.getUser('dmgame'); // await work only async
+
+	return user; // this string will not working, until await don't get response
 }
 
 getName()
