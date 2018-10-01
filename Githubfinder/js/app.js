@@ -41,3 +41,10 @@ searchInput.addEventListener('keyup',(e) => {
 		ui.clearProfile();
 	}
 });
+
+// async/await
+async function getName(){
+	return 'Hello';
+}
+
+console.log(getName());
