@@ -76,7 +76,7 @@ function request2(){
 async function makeRequest2(){
 	// throw new Error('Error');
 	return Promise.reject('error');
-	
+
 	const data = await request1();
 
 	if(data.makeAnotherRequest){
@@ -87,6 +87,17 @@ async function makeRequest2(){
 	}
 }
 
-makeRequest2()
-	.then (result => console.log(result))
-	.catch (error => console.log(error));
+// makeRequest2()
+// 	.then (result => console.log(result))
+// 	.catch (error => console.log(error));
+
+let data = 'Hello';
+
+//try-catch let continue code
+try {
+	let json = JSON.parse(data);
+} catch (err) {
+	console.log(err);
+}
+
+console.log('hello');
