@@ -74,7 +74,9 @@ function request2(){
 }
 
 async function makeRequest2(){
-	throw new Error('Error');
+	// throw new Error('Error');
+	return Promise.reject('error');
+	
 	const data = await request1();
 
 	if(data.makeAnotherRequest){
