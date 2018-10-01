@@ -47,4 +47,6 @@ async function getName(){
 	return 'Hello';
 }
 
-console.log(getName());
+getName()
+	.then(value => console.log(value));
+
