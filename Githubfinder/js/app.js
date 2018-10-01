@@ -91,13 +91,18 @@ async function makeRequest2(){
 // 	.then (result => console.log(result))
 // 	.catch (error => console.log(error));
 
-let data = 'Hello';
+let data = '{"name":"User"}';
 
 //try-catch let continue code
 try {
 	let json = JSON.parse(data);
+
+	if(!json.age) {
+		throw new Error('Datas not exist');
+	}
 } catch (err) {
 	console.log(err);
+} finally {
+	console.log('Final');
 }
-
 console.log('hello');
