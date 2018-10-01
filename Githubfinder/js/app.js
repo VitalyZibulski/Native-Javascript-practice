@@ -45,11 +45,14 @@ searchInput.addEventListener('keyup',(e) => {
 // async/await
 async function getName(){
 	// await
-	let user = await github.getUser('dmgame'); // await work only async
+	let user = await github.getUser('ab'); // await work only async
+	let repos = await github.getRepos(user);
 
-	return user; // this string will not working, until await don't get response
+	return { user, repos }; // this string will not working, until await don't get response
 }
 
+console.log(getName(), new Date());
+
 getName()
-	.then(value => console.log(value));
+	.then(value => console.log(value, new Date()));
 
