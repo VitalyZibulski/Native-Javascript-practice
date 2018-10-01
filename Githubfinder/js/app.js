@@ -51,8 +51,38 @@ async function getName(){
 	return { user, repos }; // this string will not working, until await don't get response
 }
 
-console.log(getName(), new Date());
+// console.log(getName(), new Date());
 
-getName()
-	.then(value => console.log(value, new Date()));
+// getName()
+// 	.then(value => console.log(value, new Date()));
 
+function request1(){
+	return new Promise((resolve,reject) => {
+		setTimeout(() => resolve({
+			data: 'Data',
+			makeAnotherRequest: true
+		}), 2000)
+	})
+}
+
+function request2(){
+	return new Promise((resolve,reject) => {
+		setTimeout(() => resolve({
+			data: 'Another Data'
+		}), 2000);
+	})
+}
+
+async function makeRequest2(){
+	const data = await request1();
+
+	if(data.makeAnotherRequest){
+		const moreData = await request2();
+		return moreData;
+	} else {
+		return data;
+	}
+}
+
+makeRequest2()
+	.then (result => console.log(result));
