@@ -92,3 +92,56 @@ factory.createMember('User','super');
 members.push(factory.createMember('User','standart'));
 
 members.push(factory.createMember('User1','simple'));
+
+//Observer pattern
+class EventObserver{
+	constructor() {
+		// all subscribes
+		this.observers = [];
+	}
+	// subscribe on event
+	subscribe(fn) {
+		this.observers.push(fn);
+	}
+
+	// unsubscribe
+	unsubscribe(fn) {
+		this.observers = this.observers.filter(item => {
+			if(item !== fn){
+				return item;
+			}
+		})
+	}
+
+	fire(args){
+		this.observers.forEach(fn => {
+			fn.call(null,args);
+		})
+	}
+}
+
+// const ev = new EventObserver();
+// function fn1{
+// 	console.log('Hello')
+// }
+
+// function fn2{
+// 	console.log('Hello1')
+// }
+// ev.subscribe(fn1);
+// ev.subscribe(fn2);
+
+const addNewTask = new EventObserver();
+
+function alertMessage(msg) {
+	alert(msg);
+}
+
+function consoleMessage(msg) {
+	console.log(msg);
+}
+
+addNewTask.subscribe(alertMessage);
+addNewTask.subscribe(consoleMessage);
+
+addNewTask.fire('message');
