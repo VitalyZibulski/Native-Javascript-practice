@@ -37,8 +37,18 @@ searchInput.addEventListener('keyup',(e) => {
 		// 	.catch(err => console.log(err));
 		github.getUserAsync(userText)
 			.then(info => {
-				console.log(info);
-			})
+				// console.log(info);
+					if(info.userData === 'Not Found'){
+						ui.showAlert(`User: ${userText} not found`, `alert alert-danger`);
+						//Clear profile
+						ui.clearProfile();
+						ui.hideLoader();
+			} else {
+				ui.showProfile(info.userData);
+				ui.showRepos(info.reposData);
+			}
+		})
+			.then(() => ui.hideLoader())
 	} else {
 		//Clear profile
 		ui.clearProfile();
