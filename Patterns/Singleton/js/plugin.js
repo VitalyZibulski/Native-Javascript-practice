@@ -145,3 +145,60 @@ addNewTask.subscribe(alertMessage);
 addNewTask.subscribe(consoleMessage);
 
 addNewTask.fire('message');
+
+// Mediator
+class User{
+	constructor(name){
+		this.name = name;
+		this.chatroom = null;
+	}
+
+	send(message, to) {
+		// call methd send at chatroom
+		this.chatroom.send(message, this, to)
+	}
+
+	recieve(message, from) {
+		console.log(`From ${from.name} to ${this.name} : ${message}`);
+	}
+}
+
+class ChatRoom{
+	constructor() {
+		this.users = {};
+	}
+
+	register(user) {
+		user.chatroom = this;
+		this.users[user.name] = user;
+	}
+
+	send(message, from, to) {
+		// broadcast
+		if(to) {
+			// single user message
+			to.recieve(message,from);
+		} else {
+			// Mass message
+			for (let user in this.users) {
+				if(this.user[user] !== from) {
+					this.users[user].recieve(message, from);
+				}
+			}
+		}
+	}
+
+}
+
+// Create users
+const antony = new User('Antony');
+const antony1 = new User('Antony1');
+const antony2 = new User('Antony2');
+
+// Create chat room
+const chatroom = new ChatRoom();
+
+//register users
+chatroom.register(antony);
+chatroom.register(antony1);
+chatroom.register(antony2);
